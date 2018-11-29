@@ -1,18 +1,32 @@
-'use strict'
 const zhihuModel = require('../model/zhihu')
+const request = require('request')
 
 class zhihuController {
     constructor(props) {
 
     }
+
     async getZhihuList(ctx, next) {
         const body = ctx.request.body
-        console.log(body)
-        const options = body.url ? body.url : 'https://www.zhihu.com/question/29024583'
-        const result = await zhihuModel.getZhihuList(options)
+        const options = body.url
+        const pageIndex = body.pageIndex ? body.pageIndex : 1
+        const result = await zhihuModel.getZhihuList(options, pageIndex)
         ctx.body = {
             list: result ? result : []
         }
+    }
+
+    async getRefer(ctx, next) {
+        const url = ctx.query.url;
+        var options = {
+            method: "GET",
+            url: url,
+            headers: {
+                "Referer": 'https://www.zhihu.com'
+            }
+        };
+        const res = await request(options)
+        ctx.body = res
     }
 }
 

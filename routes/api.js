@@ -6,5 +6,6 @@ const zhihuController = require('../controller/zhihu')
 
 // router.get('/home', homeController.getHomeList)
 router.post('/', zhihuController.getZhihuList)
+router.get('/img', zhihuController.getRefer)
 
 module.exports = router
