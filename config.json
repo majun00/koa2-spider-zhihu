@@ -1,4 +1,7 @@
 {
     "appid": "77156",
-    "secret": "17e9b02497b6b8fc999043cf4c04986b7fcfd389"
+    "secret": "17e9b02497b6b8fc999043cf4c04986b7fcfd389",
+    "packages": [
+        "./package.json"
+    ]
 }
