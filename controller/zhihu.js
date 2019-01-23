@@ -28,6 +28,10 @@ class zhihuController {
         const res = await request(options)
         ctx.body = res
     }
+
+    async test(ctx, next) {
+        ctx.body = 'test'
+    }
 }
 
 
